@@ -48,7 +48,7 @@ const PageTop = () => {
         </>);
     }
 
-    if ((articleIds != null) && (Object.keys(articleYears).length === 0)) {
+    if ((articleIds != null) && (Object.keys(articleYears).length === 0) && (!(articleIds.error))) {
         makeArticleYears(articleIds, setArticleYears);
     }
 
