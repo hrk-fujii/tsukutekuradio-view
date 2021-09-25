@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { Accordion } from "react-bootstrap";
+import { Row, Col, Accordion } from "react-bootstrap";
+import Youtube from "react-youtube";
 
 import envConstants from "../../envConstants";
 
@@ -56,9 +57,14 @@ const ArticleItem = (props) => {
             <Accordion.Header>
                 {props.title}
             </Accordion.Header>
-            <Accordion.Body>
-                {view.article}
-            </Accordion.Body>
+            <Accordion.Body><Row>
+                <Col xs={12} md={6}>
+                    <Youtube videoId={view.youtube_code} />
+                </Col>
+                <Col xs={12} md={6}>
+                    {view.article}
+                </Col>
+            </Row></Accordion.Body>
         </Accordion.Item>
     </>);
 }
