@@ -16,7 +16,7 @@ const getArticleIds = (setter) => {
         }
     }, (err) => {
         setter({error: true});
-    })
+    });
 }
 
 const makeArticleYears = (articleIds, setter) => {
@@ -52,6 +52,7 @@ const PageTop = () => {
         makeArticleYears(articleIds, setArticleYears);
     }
 
+    
     if (articleIds.error) {
         return (<>
             <p>
@@ -61,7 +62,9 @@ const PageTop = () => {
     }
     
     let view = {};
-    view.selector = <ArticleSelector years={articleYears.keys} selected={viewYear} setYear={setViewYear} />;
+    if (Object.keys(articleYears).length > 0) {
+        view.selector = <ArticleSelector years={Object.keys(articleYears)} setYear={setViewYear} />;
+    }
     if (viewYear in articleYears) {
         view.articles = <ArticleAria articles={articleYears[viewYear]} />;
     } else{

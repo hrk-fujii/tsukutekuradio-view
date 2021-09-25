@@ -39,9 +39,16 @@ const getArticle = (articleId, setter) => {
 }
 
 const ArticleItem = (props) => {
-    const [content, setContent] = useState({youtube_code: "", article: ""});
-    if (content === {youtube_code: "", article: ""}) {
+    const [content, setContent] = useState(null);
+    if (content === null) {
         getArticle(props.id, setContent);
+    }
+
+    let view = {};
+    if (content === null) {
+        view = {youtube_code: "", article: ""};
+    } else {
+        view = content;
     }
     
     return (<>
@@ -50,7 +57,7 @@ const ArticleItem = (props) => {
                 {props.title}
             </Accordion.Header>
             <Accordion.Body>
-                {content.article}
+                {view.article}
             </Accordion.Body>
         </Accordion.Item>
     </>);
