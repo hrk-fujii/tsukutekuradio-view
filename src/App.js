@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row } from 'react-bootstrap';
 
 import PageHeader from './header/index';
-import PageTop from './body/index/index'
+import PageTop from './contents/index/index'
 import PageFooter from './footer/index'
 
 function App() {
@@ -13,11 +13,9 @@ function App() {
           <PageHeader />
         </Row>
       </header>
-      <body>
-        <Row>
-          <PageTop />
-        </Row>
-      </body>
+      <Row>
+        <PageTop />
+      </Row>
       <footer>
         <Row>
           <PageFooter />
