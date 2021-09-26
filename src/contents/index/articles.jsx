@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { Row, Col, Accordion } from "react-bootstrap";
-import Youtube from "react-youtube";
 
 import envConstants from "../../envConstants";
 
@@ -58,10 +57,15 @@ const ArticleItem = (props) => {
                 {props.title}
             </Accordion.Header>
             <Accordion.Body><Row>
-                <Col xs={12} md={6}>
-                    <Youtube videoId={view.youtube_code} />
+                <Col xs={12} md={4} className="text-center">
+                    <iframe
+                        width={256}
+                        height={144}
+                        src={"https://www.youtube.com/embed/" + view.youtube_code}
+                        title="YouTube video player"
+                    ></iframe>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={8}>
                     {view.article}
                 </Col>
             </Row></Accordion.Body>
