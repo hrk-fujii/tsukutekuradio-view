@@ -7,7 +7,7 @@ import PageFooter from './footer/index'
 
 function App() {
   return (
-    <Container>
+    <Container style={{"max-width": "720px"}}>
       <header>
         <Row>
           <PageHeader />
